@@ -1,4 +1,14 @@
 package api.fElcontabilidade.repository;
 
-public class InssRepository {
+import api.fElcontabilidade.model.InssModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface  InssRepository extends JpaRepository<InssModel,Integer> {
+    public boolean existsById(Integer id);
+    public boolean existsByEmail(String email);
+    public boolean existsByCpf(String cpf);
+
+
 }

@@ -4,9 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name="inss")
+@Table(name="tb_inss")
+@EntityListeners(AuditingEntityListener.class)
 @RequiredArgsConstructor
 @Getter
 @Setter
@@ -21,7 +23,11 @@ public class InssModel {
     @Column
     private String email;
     @Column
-    private Double Salario;
+    private Double salario;
+
+    public InssModel(String nome, String cpf, String email, Double salario){
+    }
 
 
 }
+

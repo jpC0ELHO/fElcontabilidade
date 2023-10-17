@@ -5,7 +5,6 @@ import api.fElcontabilidade.repository.InssRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -18,12 +17,7 @@ public class InssService {
 
     private final InssRepository inssRepository;
 
-    public InssModel save(InssModel inssModel){
 
-
-
-    return inssService.save(inssModel);
-    }
 
     public boolean existsById(Integer id){return inssRepository.existsById(id);}
     public boolean existsByEmail(String email){return inssRepository.existsByEmail(email);}

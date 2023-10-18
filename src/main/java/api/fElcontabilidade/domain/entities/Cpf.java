@@ -6,22 +6,22 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
-@Table(name = "tb_clientecnpj")
+@Table(name = "tb_clientecpf")
 @EntityListeners(AuditingEntityListener.class)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ClienteCnpj extends Entidade{
+public class Cpf extends Entidade{
+
     @Enumerated
     @Column(nullable = false)
-    private ClienteType type=ClienteType.PESSOAJURIDICA;
+    private ClienteType type=ClienteType.PESSOAFISICA;
 
-    @Column(nullable = false, unique = true,length = 14)
-    private String cnpjnumber;
 
+    @Column(nullable = false,unique = true,length = 11)
+    private String cpfnumber;
 }

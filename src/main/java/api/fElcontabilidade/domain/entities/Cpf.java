@@ -24,4 +24,6 @@ public class Cpf extends Entidade{
 
     @Column(nullable = false,unique = true,length = 11)
     private String cpfnumber;
+    @Column(nullable = false,unique = true,length = 15)
+    private String rgNumber;
 }

@@ -46,6 +46,9 @@ public class Cliente extends Entidade{
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
+    @Embedded
+    private Endereco endereco;
+
 
 
 

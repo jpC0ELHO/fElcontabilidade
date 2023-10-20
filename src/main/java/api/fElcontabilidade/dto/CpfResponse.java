@@ -26,6 +26,7 @@ public record CpfResponse(
         ClienteType clienteType,
         @CPF
         String numeroCpf,
+        String rgNumber,
         String createdBy,
         String lastModifiedBy,
         @JsonSerialize(using = JsonSerializer.class)
@@ -49,6 +50,7 @@ public record CpfResponse(
                         cpf.getCpfnumber(),
                         cpf.getCreatedBy(),
                         cpf.getLastModifiedBy(),
+                        cpf.getRgNumber(),
                         cpf.getCreatedAt(),
                         cpf.getUpdatedAt()
                 );

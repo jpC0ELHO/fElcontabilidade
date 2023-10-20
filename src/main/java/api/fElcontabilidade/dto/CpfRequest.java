@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.br.CPF;
 public record CpfRequest(
         @Enumerated(EnumType.STRING)
         ClienteType tipo,
+        String rgNumber,
         @CPF
         String numeroCpf
 ) {
@@ -20,7 +21,7 @@ public record CpfRequest(
                     return null;
             }
             return new Cpf(
-                    cpfRequest.tipo,cpfRequest.numeroCpf
+                    cpfRequest.tipo,cpfRequest.numeroCpf,cpfRequest.rgNumber
             );
     }
 }

@@ -12,9 +12,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import org.hibernate.validator.constraints.br.CNPJ;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -23,7 +23,8 @@ public record CnpjResponse(
         UUID id,
         @Enumerated(EnumType.STRING)
         ClienteType clienteType,
-        String numeroid,
+        @CNPJ
+        String numeroCnpj,
         String createdBy,
         String lastModifiedBy,
         @JsonSerialize(using = JsonSerializer.class)

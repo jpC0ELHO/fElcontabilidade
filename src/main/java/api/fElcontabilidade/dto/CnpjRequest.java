@@ -6,17 +6,19 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record CnpjRequest(
         @Enumerated(EnumType.STRING)
         ClienteType tipo,
-        String cnpjNumber
+        @CNPJ
+        String numeroCnpj
 ) {
     public static Cnpj toEntidade(CnpjRequest cnpjRequest){
         if (cnpjRequest==null){
             return null;
-        }return new Cnpj(cnpjRequest.tipo,cnpjRequest.cnpjNumber);
+        }return new Cnpj(cnpjRequest.tipo,cnpjRequest.numeroCnpj);
     }
 
 }

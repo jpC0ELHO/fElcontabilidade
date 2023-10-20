@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,7 +24,8 @@ public record CpfResponse(
         UUID id,
         @Enumerated(EnumType.STRING)
         ClienteType clienteType,
-        String numeroid,
+        @CPF
+        String numeroCpf,
         String createdBy,
         String lastModifiedBy,
         @JsonSerialize(using = JsonSerializer.class)
